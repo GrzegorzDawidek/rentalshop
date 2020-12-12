@@ -14,8 +14,9 @@
 			background: #ffffff;
 			padding: 30px 30px 30px 30px;
 			box-sizing: border-box;
-			border-radius:30px;
+			border-radius: 30px;
             background-image: url('../photos/background.png');
+            background-size: auto;
 		}
 
 
@@ -48,7 +49,7 @@
 			color: #000000;
 			display: block;
 			line-height: 50px;
-			padding: 0 46.1px;
+			padding: 0 37.3px;
 			text-decoration: none;
 		}
 		
@@ -132,7 +133,7 @@
 			color: #000000;
 			display: block;
 			line-height: 55px;
-			padding: 0 94.0px;
+			padding: 0 68.0px;
 			text-decoration: none;
 		}
 
@@ -196,6 +197,7 @@
 		}
 
         div.gallery {
+            background-color: #666;
             margin: 5px;
             border: 1px solid #ccc;
             float: left;
@@ -226,21 +228,28 @@
             color: #7e7f7f;
             display: block;
             overflow: hidden;
+            background-color: gray;
 
             margin: 0px 20px 0px 20px;
             margin-bottom: 30px;
-            height: 100px;
+            height: auto;
             padding: 10px 90px 170px 150px;
         }
 
         div#author {
-		    margin-top: 10%;
+		    margin-top: 5%;
+		    margin-bottom:35%;
 		}
 
 		div#info {
 		    font-family: calibri;
 		    margin-left: 35%;
 		}
+
+		div#info1 {
+        		    font-family: calibri;
+        		    margin-left: 45%;
+        		}
 
 		div#contact {
         	font-family: calibri;
@@ -252,4 +261,17 @@
              padding: 2%;
         }
 		
-		
+		.table {
+             background-color: #333;
+             color: white;
+             text-align: center;
+             font-family: calibri;
+             padding: 2%;
+             margin-left: 35%;
+             margin-top: 5%;
+             margin-bottom: 5%;
+        }
+
+        .table-hover tbody tr:hover {
+              background-color: #666;
+        }

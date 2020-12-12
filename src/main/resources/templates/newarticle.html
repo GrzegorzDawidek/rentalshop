@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>RentalSki</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<main>
+    <div class="logo">
+        <div class="pos-center">
+            <div th:include="heading"></div>
+
+            <div align="center">
+                <h1>Add new article</h1>
+                <form action="#" th:action="@{/saveArticle}" th:object="${articles}" method="post">
+                    <table border="0" cellpadding="10">
+                        <tr>
+                            <td>Photo name: </td>
+                            <td><input type="text" class="form-control" th:field="*{photoname}"/></td>
+                        </tr>
+                        <tr>
+                            <td>Brand: </td>
+                            <td><input type="text" class="form-control" th:field="*{brand}"/></td>
+                        </tr>
+                        <tr>
+                            <td>Name: </td>
+                            <td><input type="text" class="form-control" th:field="*{name}"/></td>
+                        </tr>
+                        <tr>
+                            <td>Price: </td>
+                            <td><input type="text" class="form-control" th:field="*{price}"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div th:include="footer"></div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

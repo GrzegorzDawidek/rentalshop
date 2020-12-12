@@ -1,107 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>RentalSki</title>
-    <link rel="stylesheet" href="../static/css/style.css" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <main>
-    <div class="logo">
         <div class="pos-center">
-            <nav id="heading">
-                <ul>
-                    <li>
-                        <a href=""><b>Helmets</b><span class="caret"></span></a>
-                        <ul class="sub-menu">
-                            <li><a href="helmetswithgoggles.html">With glasses</a>
-                            </li>
-                            <li><a href="helmetswithoutgoggles.html">Without glasses</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="goggles.html"><b>Googles</b><span class="caret"></span></a>
-                    </li>
-                    <li>
-                        <a href="wintersuit.html"><b>Winter suit</b><span class="caret"></span></a>
-                    </li>
-                    <li>
-                        <a href="sticks.html"><b>Sticks</b><span class="caret"></span></a>
-                    </li>
-                    <li>
-                        <a href="boots.html"><b>Boots</b><span class="caret"></span></a>
-                    </li>
-                    <li>
-                        <a href="snowboard.html"><b>Snowboard</b><span class="caret"></span></a>
-                    </li>
-                    <li>
-                        <a href="skis.html"><b>Skis</b><span class="caret"></span></a>
-                    </li>
-                </ul>
-            </nav>
+            <div  th:include="heading"></div>
 
-            <div id="prtn">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th class="text-center">Photo</th>
+                    <th class="text-center">Brand</th>
+                    <th class="text-center">Price per hour</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="articles : ${listArticles}" th:if="${articles.name} == 'boots'">
+                    <td>
+                        <a target="_blank" th:href="@{'/photos/' + ${articles.photoname} + '.png'}">
+                            <img th:src="@{'/photos/' + ${articles.photoname} + '.png'}" width="180px"
+                                 height="150px"> </a></td>
 
-                <div class = "gallery">
-                    <a target="_blank" href="boots1.png">
-                    <img src="../static/photos/boots1.png" alt="boots1" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
+                    <td th:text="${articles.brand}">Brand</td>
+                    <td th:text="${articles.price} + 'zł'">Price</td>
+                </tr>
+                </tbody>
+            </table>
 
-
-                <div class = "gallery">
-                    <a target="_blank" href="boots2.png">
-                    <img src="../static/photos/boots2.png" alt="boots2" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-
-
-                <div class = "gallery">
-                    <a target="_blank" href="boots3.png">
-                    <img src="../static/photos/boots3.png" alt="boots3" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-
-
-                <div class = "gallery">
-                    <a target="_blank" href="boots4.png">
-                    <img src="../static/photos/boots4.png" alt="boots4" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-
-            </div>
-
-
-
-
-
-            <div id="footer">
-                <nav id="footer1">
-                    <ul>
-                        <li>
-                            <a href="contact.html"><b>Contact</b><span class="caret"></span></a>
-                        </li>
-
-                        <li>
-                            <a href="faq.html"><b>FAQ</b><span class="caret"></span></a>
-                        </li>
-
-                        <li>
-                            <a href="aboutus.html"><b>About Us</b><span class="caret"></span> </a>
-                        </li>
-                        <li>
-                            <a href="author.html"><b>Author</b><span class="caret"></span></a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <div th:include="footer"></div>
         </div>
-    </div>
 </main>
 </body>
 </html>

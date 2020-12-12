@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <nav id="heading">
+        <ul>
+            <li>
+                <a href=""><b>Helmets</b><span class="caret"></span></a>
+                <ul class="sub-menu">
+                    <li><a href="helmetswithgoggles">With glasses</a>
+                    </li>
+                    <li><a href="helmetswithoutgoggles">Without glasses</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="goggles"><b>Googles</b><span class="caret"></span></a>
+            </li>
+            <li>
+                <a href="wintersuit"><b>Winter suit</b><span class="caret"></span></a>
+            </li>
+            <li>
+                <a href="sticks"><b>Sticks</b><span class="caret"></span></a>
+            </li>
+            <li>
+                <a href="boots"><b>Boots</b><span class="caret"></span></a>
+            </li>
+            <li>
+                <a href="snowboard"><b>Snowboard</b><span class="caret"></span></a>
+            </li>
+            <li>
+                <a href="skis"><b>Skis</b><span class="caret"></span></a>
+            </li>
+            <li sec:authorize="isAuthenticated()"><a th:href="@{logout}">Logout</a></li>
+        </ul>
+    </nav>
+</main>
+</body>
+</html>

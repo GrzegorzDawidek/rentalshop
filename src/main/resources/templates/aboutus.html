@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>RentalSki</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<main>
+    <div class="pos-center">
+        <div th:include="heading"> </div>
+
+        <div id="author">
+            <center><h1>About us</h1></center>
+            <div id="informationaboutapp">
+                <center><h2>Serdecznie zapraszamy do naszej wypożyczalni GrzeSKI, znajdującej się bezpośrednio pod
+                    stokami SKI.</h2>
+                    <h2>Zapewniamy sprzęt wysokiej klasy.</h2>
+                    <h2>Usługi serwisowe wykonujemy na maszynach naszej firmy.</h2></center>
+            </div>
+        </div>
+
+        <div id="aboutus"></div>
+            <div th:include="footer"> </div>
+    </div>
+</main>
+</body>
+</html>
