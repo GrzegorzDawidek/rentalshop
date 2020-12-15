@@ -1,4 +1,4 @@
-package com.mgrapp.GrzegorzDawidek.mgrapp.web.dto;
+package com.mgrapp.GrzegorzDawidek.mgrapp.model.dto;
 
 public class UserRegistrationDto {
     private String firstName;

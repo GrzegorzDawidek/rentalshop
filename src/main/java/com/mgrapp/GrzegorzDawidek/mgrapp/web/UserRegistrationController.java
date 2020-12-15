@@ -1,7 +1,7 @@
 package com.mgrapp.GrzegorzDawidek.mgrapp.web;
 
 import com.mgrapp.GrzegorzDawidek.mgrapp.service.UserService;
-import com.mgrapp.GrzegorzDawidek.mgrapp.web.dto.UserRegistrationDto;
+import com.mgrapp.GrzegorzDawidek.mgrapp.model.dto.UserRegistrationDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;

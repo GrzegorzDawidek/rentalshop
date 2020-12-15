@@ -24,8 +24,17 @@
                             <td><input type="text" class="form-control" th:field="*{brand}"/></td>
                         </tr>
                         <tr>
-                            <td>Name: </td>
-                            <td><input type="text" class="form-control" th:field="*{name}"/></td>
+                            <td>Category: </td>
+                            <td> <select name="hours2" id="hours2" th:field="*{name}">
+                                <option value="boots">boots</option>
+                                <option value="goggles">goggles</option>
+                                <option value="skis">skis</option>
+                                <option value="helmetswithgoggles">helmetswithgoggles</option>
+                                <option value="helmetswithoutgoggles">helmetswithoutgoggles</option>
+                                <option value="snowboard">snowboard</option>
+                                <option value="sticks">sticks</option>
+                                <option value="wintersuit">wintersuit</option>
+                            </select></td>
                         </tr>
                         <tr>
                             <td>Price: </td>

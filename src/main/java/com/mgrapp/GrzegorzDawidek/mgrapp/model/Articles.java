@@ -15,8 +15,6 @@ public class Articles {
     private String photoname;
     private int price;
 
-    //Pole rezerwacji daty;
-
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -68,5 +66,4 @@ public class Articles {
         this.price = price;
     }
 
-    // metoda set i get dla metody daty
 }
