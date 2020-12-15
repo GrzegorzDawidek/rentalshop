@@ -2,8 +2,9 @@ package com.mgrapp.GrzegorzDawidek.mgrapp.service;
 
 import com.mgrapp.GrzegorzDawidek.mgrapp.model.Role;
 import com.mgrapp.GrzegorzDawidek.mgrapp.model.User;
+import com.mgrapp.GrzegorzDawidek.mgrapp.model.dto.UserRegistrationDto;
 import com.mgrapp.GrzegorzDawidek.mgrapp.repository.UserRepository;
-import com.mgrapp.GrzegorzDawidek.mgrapp.web.dto.UserRegistrationDto;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -45,11 +46,11 @@ public class UserServiceImpl implements UserService {
         if (user == null){
             throw new UsernameNotFoundException("Invalid username or password!");
         }
-return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role>roles){
-     return  roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+        return  roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
 
     }
 }
