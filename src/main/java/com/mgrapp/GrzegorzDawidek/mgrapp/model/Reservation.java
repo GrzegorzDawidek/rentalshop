@@ -5,19 +5,30 @@ import org.springframework.stereotype.Indexed;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalTime;
 
 @Entity
 @Indexed
 @Table(name = "Reservation")
 public class Reservation {
-    //timestamp
+
     private long id;
     private Date date;
-    private Time starthour;
-    private Time endhour;
-    private long itemid;//many to one
+    private LocalTime starthour;
+    private LocalTime endhour;
+    private long itemid;
     private long userid;
 
+    public Reservation(Date date, long itemid, long userid, LocalTime starthour, LocalTime endhour) {
+        this.date = date;
+        this.itemid = itemid;
+        this.userid = userid;
+        this.starthour = starthour;
+        this.endhour = endhour;
+    }
+
+    public Reservation() {
+    }
 
     public long getItemid() {
         return itemid;
@@ -27,17 +38,12 @@ public class Reservation {
         this.itemid = itemid;
     }
 
+
     public long getUserid() {
         return userid;
     }
 
     public void setUserid(long userid) {
-        this.userid = userid;
-    }
-
-    public Reservation(Date date, long itemid, long userid) {
-        this.date = date;
-        this.itemid = itemid;
         this.userid = userid;
     }
 
@@ -64,21 +70,21 @@ public class Reservation {
 
     @Basic
     @Column
-    public Time getStarthour() {
+    public LocalTime getStarthour() {
         return starthour;
     }
 
-    public void setStarthour(Time starthour) {
+    public void setStarthour(LocalTime starthour) {
         this.starthour = starthour;
     }
 
     @Basic
     @Column
-    public Time getEndhour() {
+    public LocalTime getEndhour() {
         return endhour;
     }
 
-    public void setEndhour(Time endhour) {
+    public void setEndhour(LocalTime endhour) {
         this.endhour = endhour;
     }
 }

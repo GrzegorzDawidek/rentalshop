@@ -1,6 +1,8 @@
 package com.mgrapp.GrzegorzDawidek.mgrapp.service;
 
 import com.mgrapp.GrzegorzDawidek.mgrapp.model.Articles;
+import com.mgrapp.GrzegorzDawidek.mgrapp.model.User;
+import com.mgrapp.GrzegorzDawidek.mgrapp.model.dto.ReserveArticleDto;
 import com.mgrapp.GrzegorzDawidek.mgrapp.repository.ArticlesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ public class ArticlesService {
     public void save(Articles articles) {
         articlesRepository.save(articles);
     }
+
+
 
 
 }

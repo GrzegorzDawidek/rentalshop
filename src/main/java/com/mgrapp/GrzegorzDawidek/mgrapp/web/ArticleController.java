@@ -7,6 +7,7 @@ import com.mgrapp.GrzegorzDawidek.mgrapp.model.dto.ReserveArticleDto;
 import com.mgrapp.GrzegorzDawidek.mgrapp.repository.ReservationRepository;
 import com.mgrapp.GrzegorzDawidek.mgrapp.repository.UserRepository;
 import com.mgrapp.GrzegorzDawidek.mgrapp.service.ArticlesService;
+import com.mgrapp.GrzegorzDawidek.mgrapp.service.ReservationService;
 import com.mgrapp.GrzegorzDawidek.mgrapp.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -31,6 +32,12 @@ public class ArticleController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ReservationService reservationService;
+
+    @Autowired
+    private UserServiceImpl userServiceImpl;
+
 
     @RequestMapping(value = "/saveArticle", method = RequestMethod.POST)
     public String saveArticle(@ModelAttribute("articles") Articles articles) {
@@ -46,30 +53,33 @@ public class ArticleController {
     }
 
     @RequestMapping(value = "/reservedarticle", method = RequestMethod.POST)
-    public void saveDateReservation(@ModelAttribute("reservation") ReserveArticleDto reserveArticleDto, SecurityContextHolder securityContextHolder) {
-//        System.out.println(reserveArticleDto.getArticleid());
-//        System.out.println(reserveArticleDto.getReservedate());
+    public String saveDateReservation(@ModelAttribute("reservation") ReserveArticleDto reserveArticleDto, SecurityContextHolder securityContextHolder) {
+
         Object principal = securityContextHolder.getContext().getAuthentication().getPrincipal();
        if (principal instanceof UserDetails) {
             String username = ((UserDetails) principal).getUsername();
 
             User user = userRepository.findByEmail(username);
 
-           Reservation reservation = new Reservation(
-                   reserveArticleDto.getReservedate(),
-                   Long.parseLong(reserveArticleDto.getArticleid()),
-                   user.getId()
-           );
-           reservationRepository.save(reservation);
+            boolean succcessfulReservation = reservationService.reserveArticle(reserveArticleDto,user);
+            if(!succcessfulReservation){
+                return "index";
+            }
         }
+        return "reservedarticle"; //stworzyc strone successful reservation i błąd rezerwacji
+    }
 
-//        Reservation reservation = new Reservation(
-//                reserveArticleDto.getReservedate(),
-//                Long.parseLong(reserveArticleDto.getArticleid())
-//        );
-//        reservationRepository.save(reservation);
-//        model.addAttribute("articles", articles);
-//        return "newarticle";
+
+    @RequestMapping("/reservedarticle")
+    public String newProduct1(Model model) {
+        List<Reservation> reservationList = reservationService.listAll();
+        model.addAttribute("reservationList", reservationList);
+        List<Articles> listArticles = articlesService.listAll();
+        model.addAttribute("listArticles", listArticles);
+        List<User> listUsers = userServiceImpl.listAll();
+        model.addAttribute("listUsers", listUsers);
+
+            return "reservedarticle";
     }
 
     @RequestMapping("/boots")
