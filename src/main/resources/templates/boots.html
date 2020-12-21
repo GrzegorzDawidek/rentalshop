@@ -28,12 +28,21 @@
 
                 <td th:text="${articles.brand}">Brand</td>
                 <td th:text="${articles.price} + 'zł'">Price</td>
-                <td> <form action="#" th:action="@{/reservedarticle}" method="post">
-                    Choose start date:
-                    <input type="date" name="reservedate"/>
-                    <input type="hidden" th:value="*{articles.id}" name="articleid">
-                    <button class="btn btn-primary" type="submit">Save</button>
-                </form>
+
+                <td>
+                    <form action="#" th:action="@{/reservedarticle}" method="post">
+                        Choose a hours:
+
+                        <input type="time" name="startreserve"/>
+                        -
+                        <input type="time" name="endreserve"/>
+
+                        <br>Choose start date:
+                        <input type="date" name="reservedate"/>
+                        <input type="hidden" th:value="*{articles.id}" name="articleid">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </form>
+
                 </td>
             </tr>
             </tbody>
