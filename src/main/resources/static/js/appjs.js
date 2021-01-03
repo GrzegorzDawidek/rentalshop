@@ -17,8 +17,7 @@
 
                     const secondFieldValue = getDateParts(secondField.value);
 
-                    if (secondFieldValue.h < firstFieldValue.h || (secondFieldValue.h === firstFieldValue.h+1)) {
-                         //end
+                    if (secondFieldValue.h < firstFieldValue.h || secondFieldValue.h === firstFieldValue.h || secondFieldValue.h === firstFieldValue.h+1) {
                          let h = firstFieldValue.h+1;
                          secondField.value = `${h.toString().padStart(2, '0')}:${firstFieldValue.m.toString().padStart(2, '0')}`;
                     }
@@ -55,7 +54,6 @@
 
 
 window.addEventListener("load", function() {
-  alert('Page is loaded');
   const timefields = Array.from(document.querySelectorAll('[id^="start-"]')).forEach(el=>{
   startValidation(`#${el.id}`,`#${el.id.replace("start","end")}`)
   })

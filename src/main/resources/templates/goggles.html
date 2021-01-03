@@ -31,9 +31,9 @@
                     <form action="#" th:action="@{/reservedarticle}" method="post">
                         Choose a hours:
 
-                        <input type="time"  name="startreserve" required/>
+                        <input type="time" th:id="'start-' + ${articles.id}" name="startreserve"  required/>
                         -
-                        <input type="time"  name="endreserve" required/>
+                        <input type="time" th:id="'end-' + ${articles.id}" name="endreserve"  required/>
 
                         <br>Choose start date:
                         <input type="date" name="reservedate" required/>
@@ -49,5 +49,7 @@
         <div th:include="footer"></div>
     </div>
 </main>
+<script th:src="@{/js/appjs.js}">
+</script>
 </body>
 </html>
