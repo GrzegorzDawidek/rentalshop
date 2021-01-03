@@ -17,11 +17,11 @@
                     <table border="0" cellpadding="10">
                         <tr>
                             <td>Photo name: </td>
-                            <td><input type="text" class="form-control" th:field="*{photoname}"/></td>
+                            <td><input type="text" class="form-control" th:field="*{photoname}" required/></td>
                         </tr>
                         <tr>
                             <td>Brand: </td>
-                            <td><input type="text" class="form-control" th:field="*{brand}"/></td>
+                            <td><input type="text" class="form-control" th:field="*{brand}" required/></td>
                         </tr>
                         <tr>
                             <td>Category: </td>
@@ -35,10 +35,6 @@
                                 <option value="sticks">sticks</option>
                                 <option value="wintersuit">wintersuit</option>
                             </select></td>
-                        </tr>
-                        <tr>
-                            <td>Price: </td>
-                            <td><input type="text" class="form-control" th:field="*{price}"/></td>
                         </tr>
                         <tr>
                             <td colspan="2">

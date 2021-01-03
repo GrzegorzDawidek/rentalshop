@@ -15,7 +15,6 @@
             <tr>
                 <th class="text-center">Photo</th>
                 <th class="text-center">Brand</th>
-<!--                <th class="text-center">Price per hour</th>-->
                 <th class="text-center">Date</th>
                 <th class="text-center">Time Start</th>
                 <th class="text-center">Time End</th>
@@ -33,7 +32,6 @@
                 <td th:each="user : ${listUsers}" th:if="${#authentication.name} == ${user.email} and ${user.id} == ${reservation.userid}">
                     <span th:each="articles : ${listArticles}" th:if="${reservation.itemid} == ${articles.id}" th:text="${articles.brand}"></span>
                     </td>
-<!--                <td th:each="articles : ${listArticles}" th:text="${articles.price} + 'zł'">Price</td>-->
 
                 <td th:each="user : ${listUsers}"
                     th:if="${#authentication.name} == ${user.email} and ${user.id} == ${reservation.userid}"
@@ -48,29 +46,7 @@
                     th:if="${#authentication.name} == ${user.email} and ${user.id} == ${reservation.userid}"
                     th:text="${reservation.endhour}">
                 </td>
-                <!--                <td th:each="reservation : ${reservationList}" th:if="|${user.id} == ${reservation.userid}|" th:text="${reservation.starthour}">Time Start</td>-->
-                <!--                <td th:each="reservation : ${reservationList}" th:if="|${user.id} == ${reservation.userid}|" th:text="${reservation.endhour}">Time End</td>-->
-
-
-                <!--            <td th:text="|${user.email}  ${user.email}|"></td>-->
-                <!--                <td th:text="${user.id}"></td>-->
-                <!--                th:if="|${#authentication.name} == ${user.email}|"-->
             </tr>
-            <!--&lt;!&ndash;            th:each="user : ${listUsers}"&ndash;&gt;-->
-            <!--            <tr th:each="reservation : ${reservationList}" >-->
-            <!--                <td th:each="articles : ${listArticles}">-->
-            <!--                    <a target="_blank" th:href="@{'/photos/' + ${articles.photoname} + '.png'}">-->
-            <!--                        <img th:src="@{'/photos/' + ${articles.photoname} + '.png'}" width="180px"-->
-            <!--                             height="150px"> </a></td>-->
-
-            <!--                <td th:each="articles : ${listArticles}" th:text="${articles.brand}">Brand</td>-->
-            <!--                <td th:each="articles : ${listArticles}" th:text="${articles.price} + 'zł'">Price</td>-->
-            <!--                <td   th:text="${reservation.date}">Date</td>-->
-            <!--                <td   th:text="${reservation.starthour}">Time Start</td>-->
-            <!--                <td   th:text="${reservation.endhour}">Time End</td>-->
-            <!--            </tr>-->
-
-
             </tbody>
         </table>
 

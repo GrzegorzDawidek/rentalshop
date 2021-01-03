@@ -25,4 +25,9 @@ public class FooterController {
     public void readAuthor() {
 
     }
+
+    @GetMapping("/Error403")
+    public void readError403() {
+
+    }
 }
