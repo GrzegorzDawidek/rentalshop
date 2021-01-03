@@ -13,7 +13,7 @@ public class Articles {
     private String brand;
     private String name;
     private String photoname;
-    private int price;
+
 
     @Id
     @Column(name = "ID")
@@ -56,14 +56,5 @@ public class Articles {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "PRICE")
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
 }

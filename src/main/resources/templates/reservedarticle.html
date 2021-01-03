@@ -15,7 +15,6 @@
             <tr>
                 <th class="text-center">Photo</th>
                 <th class="text-center">Brand</th>
-<!--                <th class="text-center">Price per hour</th>-->
                 <th class="text-center">Date</th>
                 <th class="text-center">Time Start</th>
                 <th class="text-center">Time End</th>
@@ -33,7 +32,6 @@
                 <td th:each="user : ${listUsers}" th:if="${#authentication.name} == ${user.email} and ${user.id} == ${reservation.userid}">
                     <span th:each="articles : ${listArticles}" th:if="${reservation.itemid} == ${articles.id}" th:text="${articles.brand}"></span>
                     </td>
-<!--                <td th:each="articles : ${listArticles}" th:text="${articles.price} + 'zł'">Price</td>-->
 
                 <td th:each="user : ${listUsers}"
                     th:if="${#authentication.name} == ${user.email} and ${user.id} == ${reservation.userid}"

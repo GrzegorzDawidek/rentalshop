@@ -31,12 +31,12 @@
                     <form action="#" th:action="@{/reservedarticle}" method="post">
                         Choose a hours:
 
-                        <input type="time"  name="startreserve"/>
+                        <input type="time"  name="startreserve" required/>
                         -
-                        <input type="time"  name="endreserve"/>
+                        <input type="time"  name="endreserve" required/>
 
                         <br>Choose start date:
-                        <input type="date" name="reservedate"/>
+                        <input type="date" name="reservedate" required/>
                         <input type="hidden" th:value="*{articles.id}" name="articleid">
                         <button class="btn btn-primary" type="submit">Save</button>
                     </form>
