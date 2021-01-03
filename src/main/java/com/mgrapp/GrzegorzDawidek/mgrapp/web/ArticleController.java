@@ -63,10 +63,10 @@ public class ArticleController {
 
             boolean succcessfulReservation = reservationService.reserveArticle(reserveArticleDto,user);
             if(!succcessfulReservation){
-                return "index";
+                return "bookingerror";
             }
         }
-        return "reservedarticle"; //stworzyc strone successful reservation i błąd rezerwacji
+        return "bookingsuccess";
     }
 
 
