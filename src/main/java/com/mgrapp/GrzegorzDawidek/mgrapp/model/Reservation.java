@@ -4,7 +4,6 @@ import org.springframework.stereotype.Indexed;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Time;
 import java.time.LocalTime;
 
 @Entity

@@ -15,7 +15,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -57,13 +56,13 @@ public class ArticleController {
     public String saveDateReservation(@ModelAttribute("reservation") ReserveArticleDto reserveArticleDto, SecurityContextHolder securityContextHolder) {
 
         Object principal = securityContextHolder.getContext().getAuthentication().getPrincipal();
-       if (principal instanceof UserDetails) {
+        if (principal instanceof UserDetails) {
             String username = ((UserDetails) principal).getUsername();
 
             User user = userRepository.findByEmail(username);
 
-            boolean succcessfulReservation = reservationService.reserveArticle(reserveArticleDto,user);
-            if(!succcessfulReservation){
+            boolean succcessfulReservation = reservationService.reserveArticle(reserveArticleDto, user);
+            if (!succcessfulReservation) {
                 return "bookingerror";
             }
         }
@@ -80,7 +79,7 @@ public class ArticleController {
         List<User> listUsers = userServiceImpl.listAll();
         model.addAttribute("listUsers", listUsers);
 
-            return "reservedarticle";
+        return "reservedarticle";
     }
 
     @RequestMapping("/boots")

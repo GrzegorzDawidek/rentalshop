@@ -50,7 +50,7 @@ public class ReservationService {
 
             reservationRepository.save(reservation);
             return true;
-        }else{
+        } else {
             return false;
         }
 

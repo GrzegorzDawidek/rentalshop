@@ -15,16 +15,13 @@ public class ArticlesService {
     @Autowired
     ArticlesRepository articlesRepository;
 
-    public List<Articles> listAll(){
+    public List<Articles> listAll() {
         return articlesRepository.findAll();
     }
 
     public void save(Articles articles) {
         articlesRepository.save(articles);
     }
-
-
-
 
 
 }

@@ -28,11 +28,11 @@ public class Articles {
 
     @Basic
     @Column
-    public String getPhotoname(){
+    public String getPhotoname() {
         return photoname;
     }
 
-    public void setPhotoname(String photoname){
+    public void setPhotoname(String photoname) {
         this.photoname = photoname;
     }
 
